@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Arialblk;
+  src: url(/fonts/ariblk.ttf);
+}
+
 /* Mise en page */
 html,
 body {
@@ -6,7 +11,7 @@ body {
   height: 100%;
   overflow: hidden;
 
-  background-image: url(/img/exemple-bg-tmt.jpg);
+  background-image: url(/img/new-bg-tmt.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,63 +26,100 @@ body {
     left top,
     left bottom,
   ); /* Chrome,Safari4+ */
-  
+
+  font-family: Arialblk;
+  font-size: 100%;
 }
 #main {
   min-height: 100%;
   position: relative;
-  padding-bottom: 200px; /* Hauteur du pied de page */
+  padding-bottom: 12.5rem; /* Hauteur du pied de page */
 }
 #footer {
   position: absolute;
   bottom: 0; /* on le colle en bas */
   width: 100%;
-  height: 200px; /* Hauteur du pied de page */
+  height: 10rem; /* Hauteur du pied de page */
 }
 
 /* header */
 .titre {
   font-weight: bold;
-  font-family: sans-serif;
-  color: white;
+  font-family: Arialblk;
+
+  background: -webkit-linear-gradient(#69e4a7, #4b4db9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: clamp(2rem, 3vw, 4rem);
+  display: flex;
+  align-items: center;
 }
+
+.menu {
+  width: 30%;
+  margin: auto;
+  display: inline;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
 .header {
-  padding: 1em 0 0;
+  padding: 1rem 5% 0;
+  margin-top: 2em;
   margin-bottom: 2em;
   clear: both;
   position: fixed;
   z-index: 9999; /* set this to something high*/
-  background-color: none; /* so you can see it is a block */
+  background-color: none;
   min-width: 100%;
+  height: 10rem;
+  justify-content: space-around;
+  display: block;
 }
-.header-buttons-group {
-  text-align: right;
-}
-.header-row-settings {
+
+.logo-header {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 1.5rem;
   margin: 0;
-  height: 75px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 75px;
 }
-.logo-header{
-  width: 160px;
-  height: 100px;
+
+@media screen and (max-width: 65rem) {
+  .button-group {
+    display: none;
+  }
+  .logo-header {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
 }
 
 /* body */
+.titre-second {
+  height: 1.5rem;
+  border-radius: 0px;
+  width: 100%;
+  display: block;
+}
+
 .titre-body {
   font-weight: bold;
-  font-family: sans-serif;
+  font-family: Arialblk;
   color: white;
   text-align: center;
-  margin-top: 15%;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .texte {
   color: white;
-  font-family: sans-serif;
+  font-family: Arialblk;
   text-align: center;
+}
+
+.text-center {
+  margin: 0.5rem 0;
 }
 
 .lien {
@@ -86,31 +128,13 @@ body {
   font-size: larger;
 }
 
-.exemple-bg-tmt {
-  /* On met en place le fond d'écran */
-  min-height: 100%;
-  min-width: 100%;
-  /* On indique un redimensionnement proportionnel */
-  width: 100%;
-  height: auto;
-  /* L'image est positionnée en haut à gauche */
-  position: relative;
-  top: 0;
-  left: 0;
-}
-@media screen and (max-width: 1024px) {
-  /* Le traitement est ici spécifique à l'image */
-  .exemple-bg-tmt {
-    left: 50%;
-    margin-left: -512px; /* 50% */
-  }
-}
 .centrage-milieu {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 .centrage-top {
   position: fixed;
   left: 50%;
@@ -118,16 +142,95 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* footer */
-.titre-footer {
-  font-weight: bold;
-  font-family: sans-serif;
-  color: white;
-  max-height: 30px;
+.image-produit {
+  width: 400px;
+  height: 550px;
+  border-radius: 5%;
 }
+
+.box-form {
+  display: flex;
+}
+
+.conteneur {
+  width: 50%;
+  display: flex;
+  column-gap: 5%;
+  padding: 0;
+  justify-content: center;
+}
+
+.detail {
+  margin-top: .3rem;
+  float: left;
+}
+/* menu taille */
+.size {
+  position: relative;
+  padding: 0 10px;
+}
+.size:after {
+  position: absolute;
+  content: "";
+  background-color: #333;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+}
+.size:hover:after {
+  width: 100%;
+}
+
+/* menu couleur */
+.color-noir {
+  position: relative;
+  padding: 0 10px;
+}
+
+.color-noir:after {
+  position: absolute;
+  content: "";
+  background-color: #000;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+}
+.color-noir:hover:after {
+  width: 100%;
+}
+
+.color-rouge {
+  position: relative;
+  padding: 0 10px;
+}
+
+.color-rouge:after {
+  position: absolute;
+  content: "";
+  background-color: rgb(255, 0, 0);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+}
+.color-rouge:hover:after {
+  width: 100%;
+}
+
+.navbar {
+  justify-content: space-around;
+}
+/* footer */
 
 .texte-footer {
   max-height: 30px;
   color: white;
   font-family: sans-serif;
+}
+
+.icons {
+  max-width: 3rem;
+  max-height: 3rem;
 }
